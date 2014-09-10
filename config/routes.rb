@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :submissions
+
   resources :recoveries do
     get :check_inbox, on: :collection
   end

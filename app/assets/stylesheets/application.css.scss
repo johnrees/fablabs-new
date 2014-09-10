@@ -15,7 +15,19 @@ body {
 .lab {
   @include span-columns(3);
   @include omega(4n);
+  padding: 8px;
+  background: #FFF;
+  border: 1px solid #F2F2F2;
+  border-radius: 2px;
   margin-bottom: 20px;
+  font-weight: bold;
+  a {
+    color: #41799F;
+  }
+  img {
+    width: 100%;
+    margin-bottom: 5px;
+  }
 }
 
 div.container {
@@ -48,6 +60,7 @@ h3 {
 
 header {
   margin-bottom: 20px;
+  border-bottom: 1px solid #FAFAFA;
   overflow: hidden;
   background: #333;
   height: 55px;
@@ -75,7 +88,7 @@ header {
     padding: 10px 10px;
     border: 2px solid #333;
     border-radius: 7px;
-    width: 400px;
+    width: 350px;
     outline: none;
     margin-right: 10px;
     &:focus {

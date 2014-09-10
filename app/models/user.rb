@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   validates :password, length: { minimum: 6 }, allow_nil: true
   has_many :recoveries
+  has_many :submissions, foreign_key: 'creator_id'
 
   def to_s
     name

@@ -9,3 +9,15 @@ feature "visiting profile pages" do
   end
 
 end
+
+feature "listing users" do
+  scenario "index page" do
+    create(:user, first_name: "Bart")
+    create(:user, first_name: "Maggie")
+    create(:user, first_name: "Marge")
+    visit users_path
+    expect(page).to have_link("Bart Simpson")
+    expect(page).to have_link("Maggie Simpson")
+    expect(page).to have_link("Marge Simpson")
+  end
+end

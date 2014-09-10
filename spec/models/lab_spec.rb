@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Lab, :type => :model do
+
+  it { should have_one(:submission) }
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:description) }
 
@@ -8,5 +10,11 @@ RSpec.describe Lab, :type => :model do
     lab = build(:lab, name: 'Space Lab')
     expect(lab.to_s).to eq('Space Lab')
   end
+
+  it "should have default state" do
+    lab = build(:lab)
+    expect(lab.current_state).to eq(:new)
+  end
+
 
 end

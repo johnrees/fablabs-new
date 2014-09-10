@@ -10,9 +10,11 @@ gem 'simple_form', github: 'plataformatec/simple_form'
 gem 'sass-rails', '~> 5.0.0.beta1'
 gem 'bourbon'
 gem 'neat'
-gem 'bitters'
-gem 'refills'
-gem 'workflow'
+gem 'normalize-rails'
+# gem 'bitters'
+# gem 'refills'
+
+gem 'workflow', github: 'geekq/workflow'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -50,9 +52,8 @@ group :test do
   gem 'database_cleaner'
 end
 
-gem 'normalize-rails'
-
 group :development do
+  gem 'ruby-graphviz', '~> 1.0.0'
   gem 'guard-rspec', require: false
   gem 'letter_opener'
 end

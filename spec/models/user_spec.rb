@@ -9,6 +9,7 @@ describe User, type: :model do
   it { is_expected.to validate_presence_of(:password) }
   it { is_expected.to ensure_length_of(:password).is_at_least(6) }
   it { is_expected.to have_many(:recoveries) }
+  it { is_expected.to have_many(:submissions) }
 
   it "has name for to_s" do
     user = build(:user, first_name: 'Homer', last_name: 'Simpson')

@@ -1,6 +1,6 @@
 = title "Add a Lab"
 
-= form_for @lab do |f|
+= simple_form_for @lab do |f|
   - if @lab.errors.any?
     .error_messages
       %h2 Form is invalid
@@ -8,12 +8,6 @@
         - @lab.errors.full_messages.each do |message|
           %li= message
 
-  .field
-    = f.label :name
-    = f.text_field :name
-
-  .field
-    = f.label :description
-    = f.text_area :description
-
+  = f.input :name
+  = f.input :description
   .actions= f.submit "Add Lab"

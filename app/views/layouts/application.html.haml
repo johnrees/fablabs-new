@@ -14,6 +14,7 @@
         %nav.main-nav
           %input{:placeholder => "Search for Labs, Places, People or Machines...", :type => "text"}
           = link_to "Labs", labs_path
+          = link_to "Users", users_path
         %nav.user-nav
           - if current_user
             = current_user
@@ -23,7 +24,8 @@
             = link_to "Join", join_path
             or
             = link_to "Log in", login_path
-    - flash.each do |key, value|
-      = content_tag :div, value, class: "flash #{key}"
+    .container
+      - flash.each do |key, value|
+        = content_tag :div, value, class: "flash #{key}"
     #main
       .container= yield

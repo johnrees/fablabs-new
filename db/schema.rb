@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910111801) do
+ActiveRecord::Schema.define(version: 20140910121540) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,9 +19,12 @@ ActiveRecord::Schema.define(version: 20140910111801) do
   create_table "labs", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "workflow_state", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
+
+  add_index "labs", ["workflow_state"], name: "index_labs_on_workflow_state", using: :btree
 
   create_table "recoveries", force: true do |t|
     t.integer  "user_id"
@@ -33,6 +36,17 @@ ActiveRecord::Schema.define(version: 20140910111801) do
   end
 
   add_index "recoveries", ["user_id"], name: "index_recoveries_on_user_id", using: :btree
+
+  create_table "submissions", force: true do |t|
+    t.integer  "creator_id"
+    t.integer  "lab_id"
+    t.string   "workflow_state"
+    t.text     "notes"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "submissions", ["creator_id", "lab_id"], name: "index_submissions_on_creator_id_and_lab_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "first_name"
