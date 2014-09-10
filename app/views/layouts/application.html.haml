@@ -1,0 +1,29 @@
+!!!
+%html
+  %head
+    %title= [content_for(:title),'FabLabs.io'].reject(&:blank?).join(' | ')
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %header
+      .container
+        .logo
+          = link_to root_path do
+            = image_tag "fablabs-logo.png"
+        %nav.main-nav
+          %input{:placeholder => "Search for Labs, Places, People or Machines...", :type => "text"}
+          = link_to "Labs", labs_path
+        %nav.user-nav
+          - if current_user
+            = current_user
+            = link_to "Change Password", new_password_path
+            = link_to "Log out", logout_path
+          - else
+            = link_to "Join", join_path
+            or
+            = link_to "Log in", login_path
+    - flash.each do |key, value|
+      = content_tag :div, value, class: "flash #{key}"
+    #main
+      .container= yield

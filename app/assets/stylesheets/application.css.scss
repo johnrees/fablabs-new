@@ -1,0 +1,86 @@
+@import 'normalize-rails';
+
+@import 'bourbon';
+@import 'grid-settings';
+@import 'neat';
+
+body {
+  font-size: 15px;
+  background: #fafafa;
+  color: #444;
+  -webkit-font-smoothing: antialiased;
+}
+
+.lab {
+  @include span-columns(3);
+  @include omega(4n);
+  margin-bottom: 20px;
+}
+
+div.container {
+  @include outer-container;
+}
+
+img {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,h2 {
+  color: #222;
+}
+
+h1 {
+  margin: 0;
+}
+
+h2 {
+  border-bottom: 1px solid #CCC;
+}
+
+h3 {
+  margin: 0.4em 0 0.2em 0;
+}
+
+header {
+  margin-bottom: 20px;
+  overflow: hidden;
+  background: #333;
+  height: 55px;
+  line-height: 55px;
+  color: #888;
+  a {
+    color: #f5f5f5;
+    text-decoration: none;
+  }
+  img {
+    margin-top: 11px;
+    height: 31px;
+  }
+  .logo, .user-nav {
+    @include span-columns(3);
+  }
+  .user-nav {
+    text-align: right;
+  }
+  .main-nav {
+    @include span-columns(6);
+  }
+
+  input {
+    padding: 7px;
+    border: 2px solid #333;
+    border-radius: 4px;
+    width: 400px;
+    outline: none;
+    margin-right: 10px;
+    &:focus {
+      border-color: #B2D0FE;
+      // border-color: #B2D0FE;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.075),0 0 5px rgba(81,167,232,1);
+    }
+  }
+}

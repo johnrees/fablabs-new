@@ -1,0 +1,21 @@
+%h1 Change Password
+= form_for @password_form, url: passwords_path, method: :post do |f|
+  - if @password_form.errors.any?
+    .error_messages
+      %h2 Form is invalid
+      %ul
+        - @password_form.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :original_password
+    %br/
+    = f.password_field :original_password
+  .field
+    = f.label :new_password
+    %br/
+    = f.password_field :new_password
+  .field
+    = f.label :new_password_confirmation
+    %br/
+    = f.password_field :new_password_confirmation
+  .actions= f.submit "Change Password"

@@ -7,6 +7,11 @@ gem 'rails', '4.2.0.beta1'
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.0.beta1'
+gem 'bourbon'
+gem 'neat'
+gem 'bitters'
+gem 'refills'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -30,6 +35,8 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Rails Html Sanitizer for HTML sanitization
 gem 'rails-html-sanitizer', '~> 1.0'
 
+gem 'pundit'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
@@ -45,6 +52,7 @@ gem 'normalize-rails'
 
 group :development do
   gem 'guard-rspec', require: false
+  gem 'letter_opener'
 end
 
 # Use Unicorn as the app server

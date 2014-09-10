@@ -77,7 +77,22 @@ end
 
 feature "changing details" do
   skip "resetting password"
-  skip "changing password"
+
+  scenario "changing password" do
+    visit login_path
+    fill_in "Email", with: "john@bitsushi.com"
+    fill_in "Password", with: "password"
+    click_button "Log in"
+    click_link "Change Password"
+    fill_in "Original password", with: "password"
+    fill_in "New password", with: "password2"
+    fill_in "New password confirmation", with: "password2"
+    click_button "Change Password"
+    expect(page).to have_content("Successfully changed")
+  end
+
+  skip "changing password incorrect details"
+
   skip "changing details"
 end
 

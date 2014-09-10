@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  resources :passwords
+  resources :labs
+
   get 'join', to: 'users#new', as: 'join'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'

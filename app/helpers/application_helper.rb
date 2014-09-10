@@ -5,4 +5,9 @@ module ApplicationHelper
     return content_tag(:h1, page_title, options)
   end
 
+  def placeholder w, h = nil
+    h ||= w
+    image_tag "http://placehold.it/#{w}x#{h}", class: 'placeholder'
+  end
+
 end
