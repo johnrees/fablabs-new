@@ -11,4 +11,10 @@ class UserMailer < ActionMailer::Base
 
     mail to: "to@example.org"
   end
+
+  def account_recovery_instructions user_id
+    @user = User.find(user_id)
+    mail(to: @user.email_string, subject: "Account Recovery Instructions")
+  end
+
 end

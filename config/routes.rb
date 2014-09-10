@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :recoveries do
+    get :check_inbox, on: :collection
+  end
+
   resources :passwords
   resources :labs
 

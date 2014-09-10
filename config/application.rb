@@ -33,5 +33,17 @@ module Fablabs
         g.controller_specs      false
         g.helper_specs          false
     end
+
+    # config.action_mailer.default_url_options = { host: "www.fablabs.io", protocol: "https" }
+    # config.action_mailer.delivery_method = :smtp
+    # config.action_mailer.smtp_settings = {
+    #   :authentication => ENV['EMAIL_AUTHENTICATION'],
+    #   :address => ENV['EMAIL_ADDRESS'],
+    #   :port => ENV['EMAIL_PORT'].to_i,
+    #   :domain => ENV['EMAIL_DOMAIN'],
+    #   :user_name => ENV['EMAIL_USERNAME'],
+    #   :password => ENV['EMAIL_PASSWORD']
+    # }
+
   end
 end

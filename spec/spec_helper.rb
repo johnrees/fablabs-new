@@ -13,6 +13,9 @@
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
 
+require 'rubygems'
+require 'factory_girl'
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
@@ -31,6 +34,21 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+
+  config.include FactoryGirl::Syntax::Methods
+  config.include Features::SessionHelpers, type: :feature
+  config.include MailerMacros
+
+  # http://railscasts.com/episodes/413-fast-tests
+  config.before(:each) { reset_email }
+  config.filter_run focus: true
+  config.run_all_when_everything_filtered = true
+  config.filter_run_excluding :slow unless ENV["SLOW_SPECS"]
+  config.filter_run_excluding :ignore
+  # config.before(:all) { DeferredGarbageCollection.start }
+  # config.after(:all) { DeferredGarbageCollection.reconsider }
+
+  config.use_transactional_fixtures = true
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction

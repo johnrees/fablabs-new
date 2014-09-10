@@ -3,9 +3,12 @@
   .field
     = label_tag :email
     %br/
-    = text_field_tag :email, params[:email]
+    = text_field_tag :email, params[:email], autofocus: true
   .field
     = label_tag :password
     %br/
     = password_field_tag :password
+
   .actions= submit_tag "Log in"
+
+= link_to "Forgot Password?", new_recovery_path
