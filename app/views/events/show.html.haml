@@ -1,0 +1,6 @@
+= title @event
+= @event.starts_at
+= @event.ends_at
+= simple_format @event.description
+
+= link_to "Edit Event", edit_event_path(@event)

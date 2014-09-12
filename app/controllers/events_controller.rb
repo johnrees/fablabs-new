@@ -9,6 +9,11 @@ class EventsController < ApplicationController
     authorize @event
   end
 
+  def show
+    @event = Event.find(params[:id])
+    authorize @event
+  end
+
   def create
     @event = current_user.events.build event_params
     authorize @event
@@ -16,6 +21,21 @@ class EventsController < ApplicationController
       redirect_to events_url, notice: "event added"
     else
       render "new"
+    end
+  end
+
+  def edit
+    @event = Event.find(params[:id])
+    authorize @event
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    authorize @event
+    if @event.update_attributes event_params
+      redirect_to events_url, notice: "Event updated"
+    else
+      render "edit"
     end
   end
 

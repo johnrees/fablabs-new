@@ -1,14 +1,6 @@
 class LabPolicy < ApplicationPolicy
 
-  def new?
-    user
-  end
-
   def create?
-    user
-  end
-
-  def edit?
     user
   end
 

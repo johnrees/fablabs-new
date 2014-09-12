@@ -1,10 +1,10 @@
 class EventPolicy < ApplicationPolicy
 
-  def new?
+  def create?
     user
   end
 
-  def create?
+  def update?
     user
   end
 
