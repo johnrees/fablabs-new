@@ -1,11 +1,12 @@
 language: ruby
 rvm:
-- 2.0.0
+  - 2.0.0
 before_script:
-- cp config/database.travis.yml config/database.yml
-- bundle exec rake db:create db:migrate db:schema:load
+  - cp config/database.travis.yml config/database.yml
+  - bundle exec rake db:create db:migrate db:schema:load
 script:
-- RAILS_ENV=test bundle exec rake spec
+  - bundle exec rake spec
+  - bundle exec rake brakeman:run
 bundler_args: --without production
 env:
   global:

@@ -46,6 +46,7 @@ gem 'pundit'
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'brakeman'
 end
 
 group :test do
