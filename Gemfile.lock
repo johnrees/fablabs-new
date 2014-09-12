@@ -5,6 +5,13 @@ GIT
     workflow (1.2.0)
 
 GIT
+  remote: git://github.com/laserlemon/figaro.git
+  revision: 9f54872dfc1a972b4a971211706272f0f38495f4
+  specs:
+    figaro (1.0.0.rc1)
+      thor (~> 0.14)
+
+GIT
   remote: git://github.com/plataformatec/simple_form.git
   revision: 29f8f768f1702c6d032854b870d14eadb81cea88
   specs:
@@ -49,6 +56,9 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.6)
+    airbrake (4.1.0)
+      builder
+      multi_json
     arel (6.0.0.beta1)
     bcrypt (3.1.7)
     binding_of_caller (0.7.3.pre1)
@@ -250,6 +260,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  airbrake
   bcrypt (~> 3.1.7)
   bourbon
   byebug
@@ -257,6 +268,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   database_cleaner
   factory_girl_rails
+  figaro!
   guard-rspec
   haml-rails
   jbuilder (~> 2.0)
