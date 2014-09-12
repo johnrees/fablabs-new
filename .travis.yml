@@ -18,3 +18,9 @@ addons:
 notifications:
   slack:
     secure: "fmEMXdoNv6Bs6KxDKqeLX9x0VNDPKubpUlPm3q++zNV16NodXExQSkXzgmkoVCPlKW6wbbvRVYbpOd/7/w5ybWBX7x0Rwp/whc1+4L9SiQJ6uOn2MBF8yGvxg4LzVBmRLN5fG4UnIJGdxFAg88m33nHlU9Zz9MzcVoDYoOd17aw="
+
+# speed tips
+# http://leopard.in.ua/2013/10/12/speed-testing-on-travis/
+
+# deploy after success
+# https://cowbell-labs.com/2014-03-06-capistrano-deploys-from-travis.html
