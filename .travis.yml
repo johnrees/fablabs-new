@@ -13,7 +13,7 @@ env:
 addons:
   code_climate:
     repo_token:
-      secure: PFPvPPQj0WcAH8KQEoyQOsxHG6MY53mJsZUmAKlcpFqqzsS2LMYxR2edLNFNps4GwGxfNNdj4ncUNTrnjpJqeyhT90Q8Fv5lWON9nRj0Wze4NY5WEnrDSzrqaYWfzlnwcI+dvWnjU3Vp238ZCzQlQG/uL4kp2xTGhlx/oW9vNQ4=
+      secure: "a1w3t2G8k6S8+ktOA1X7QJbtN/0UhNPxcBhkjn9cIhFajj9hkeuAvM1ndngy1/lhZtfjvFXnCkIv9TBeO/OG+wSW8GPzGd6eDUNVIYeB1rPuvnCHttj8GDP+2kAelsFMdofViAhIQNFAisbPieZc1HylNmM3nrjJvlebEeqoi6I="
 notifications:
   slack:
-    secure: fmEMXdoNv6Bs6KxDKqeLX9x0VNDPKubpUlPm3q++zNV16NodXExQSkXzgmkoVCPlKW6wbbvRVYbpOd/7/w5ybWBX7x0Rwp/whc1+4L9SiQJ6uOn2MBF8yGvxg4LzVBmRLN5fG4UnIJGdxFAg88m33nHlU9Zz9MzcVoDYoOd17aw=
+    secure: "fmEMXdoNv6Bs6KxDKqeLX9x0VNDPKubpUlPm3q++zNV16NodXExQSkXzgmkoVCPlKW6wbbvRVYbpOd/7/w5ybWBX7x0Rwp/whc1+4L9SiQJ6uOn2MBF8yGvxg4LzVBmRLN5fG4UnIJGdxFAg88m33nHlU9Zz9MzcVoDYoOd17aw="
