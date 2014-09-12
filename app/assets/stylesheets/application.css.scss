@@ -75,13 +75,13 @@ header {
     height: 31px;
   }
   .logo, .user-nav {
-    @include span-columns(3);
+    @include span-columns(2);
   }
   .user-nav {
     text-align: right;
   }
   .main-nav {
-    @include span-columns(6);
+    @include span-columns(7);
   }
 
   input {

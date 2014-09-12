@@ -1,0 +1,6 @@
+= title "Events"
+
+= link_to "Add an Event", new_event_path
+
+- @events.each do |event|
+  = link_to event, event

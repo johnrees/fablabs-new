@@ -41,4 +41,5 @@ class Lab < ActiveRecord::Base
       event :submit_changes, :transitions_to => :awaiting_review
     end
   end
+
 end

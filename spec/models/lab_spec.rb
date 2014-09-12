@@ -6,12 +6,12 @@ RSpec.describe Lab, :type => :model do
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:description) }
 
-  it "should have name for to_s" do
+  it "has name for to_s" do
     lab = build(:lab, name: 'Space Lab')
     expect(lab.to_s).to eq('Space Lab')
   end
 
-  it "should have default state" do
+  it "has default state" do
     lab = build(:lab)
     expect(lab.current_state).to eq(:new)
   end

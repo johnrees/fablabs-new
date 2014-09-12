@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }, allow_nil: true
   has_many :recoveries
   has_many :submissions, foreign_key: 'creator_id'
+  has_many :events, foreign_key: 'creator_id'
 
   def to_s
     name
