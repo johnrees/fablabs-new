@@ -1,0 +1,18 @@
+language: ruby
+rvm:
+  - 2.0.0
+before_script:
+  - cp config/database.travis.yml config/database.yml
+  - bundle exec rake db:create db:migrate db:schema:load
+script:
+  - RAILS_ENV=test bundle exec rake spec
+bundler_args: --without production
+env:
+  global:
+    - RAILS_ENV=test
+addons:
+  code_climate:
+    repo_token:
+      secure: PFPvPPQj0WcAH8KQEoyQOsxHG6MY53mJsZUmAKlcpFqqzsS2LMYxR2edLNFNps4GwGxfNNdj4ncUNTrnjpJqeyhT90Q8Fv5lWON9nRj0Wze4NY5WEnrDSzrqaYWfzlnwcI+dvWnjU3Vp238ZCzQlQG/uL4kp2xTGhlx/oW9vNQ4=
+# gemfile: Gemfile.ci
+# http://leopard.in.ua/2013/10/12/speed-testing-on-travis/
