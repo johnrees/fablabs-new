@@ -3,6 +3,7 @@ require 'spec_helper'
 feature "editing a lab" do
 
   scenario "with valid credentials" do
+    login
     lab = create(:lab, name: 'BCN')
     visit lab_path(lab)
     click_link "Edit Lab"

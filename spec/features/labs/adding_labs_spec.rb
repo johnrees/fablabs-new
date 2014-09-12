@@ -3,6 +3,7 @@ require 'spec_helper'
 feature "adding a lab" do
 
   scenario "with valid credentials" do
+    login
     visit root_path
     click_link "Labs"
     click_link "Add a Lab"
@@ -13,6 +14,7 @@ feature "adding a lab" do
   end
 
   scenario "without valid credentials" do
+    login
     visit new_lab_path
     fill_in "Name", with: "NASA"
     click_button "Add Lab"

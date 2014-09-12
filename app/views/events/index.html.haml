@@ -1,6 +1,8 @@
 = title "Events"
 
-= link_to "Add an Event", new_event_path
-
 - @events.each do |event|
-  = link_to event, event
+  = content_tag_for :div, event do
+    = event.starts_at
+    = link_to event, event
+
+= link_to "Add an Event", new_event_path

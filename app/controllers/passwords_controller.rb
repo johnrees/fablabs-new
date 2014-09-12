@@ -1,5 +1,7 @@
 class PasswordsController < ApplicationController
 
+  skip_after_action :verify_authorized
+
   def new
     @password_form = PasswordForm.new(current_user)
   end

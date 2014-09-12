@@ -5,7 +5,7 @@ FactoryGirl.define do
     association :creator, factory: :user
     name "An Event"
     description "Event Description"
-    starts_at { Time.now + 1.day }
-    ends_at { Time.now + 1.day + 2.hours }
+    starts_at { 1.day.from_now }
+    ends_at { 1.day.from_now + 2.hours }
   end
 end

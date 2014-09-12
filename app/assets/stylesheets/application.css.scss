@@ -4,12 +4,18 @@
 @import 'grid-settings';
 @import 'neat';
 
+@import 'form';
+
 body {
   font-family: 'Helvetica';
   font-size: 15px;
   background: #fafafa;
   color: #444;
   -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  margin-bottom: 0.5em !important;
 }
 
 .lab {

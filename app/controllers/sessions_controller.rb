@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
 
+  skip_after_action :verify_authorized
+  skip_after_action :verify_policy_scoped
+
   def new
     redirect_to(root_path, notice: "You're already logged in") if session[:user_id]
   end
