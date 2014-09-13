@@ -26,8 +26,7 @@ class RecoveriesController < ApplicationController
 
   def update
     @recovery = Recovery.where(key: params[:id]).first
-    user_params = recovery_params[:user_attributes].slice(:password, :password_confirmation)
-    if @recovery.user and user_params[:password].present?
+    if user_params[:password].present?
       if @recovery.user.update_attributes user_params
         session[:user_id] = @recovery.user.id
         redirect_to root_path, flash: { success: 'Password reset' }
@@ -35,12 +34,16 @@ class RecoveriesController < ApplicationController
         render :show
       end
     else
-      flash.now[:error] = "Password can't be blank"
+      @recovery.user.errors.add(:password, "can't be blank")
       render :show
     end
   end
 
 private
+
+  def user_params
+    recovery_params[:user_attributes].slice(:password, :password_confirmation)
+  end
 
   def recovery_params
     params.require(:recovery).permit(:email, user_attributes: [:password, :password_confirmation])

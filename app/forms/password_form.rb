@@ -5,9 +5,9 @@ class PasswordForm
   attr_accessor :original_password, :new_password
 
   validate :verify_original_password
-  validates_presence_of :original_password, :new_password
-  validates_confirmation_of :new_password
-  validates_length_of :new_password, minimum: 6
+  validates :original_password, :new_password, presence: true
+  validates :new_password, confirmation: true
+  validates :new_password, length: { minimum: 6 }
 
   def initialize(user)
     @user = user

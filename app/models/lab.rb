@@ -1,5 +1,5 @@
 class Lab < ActiveRecord::Base
-  validates_presence_of :name, :description
+  validates :name, :description, presence: true
   has_one :submission
   def to_s
     name

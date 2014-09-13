@@ -42,14 +42,24 @@ feature "viewing events" do
     expect(page).to have_title(event)
   end
 
-  scenario "editing an event" do
-    login
+  scenario "editing an event with valid credentials" do
     event = create(:event)
+    login event.creator
     visit event_path(event)
     click_link "Edit Event"
     fill_in "Name", with: "New Name"
     click_button "Update Event"
     expect(page).to have_content('updated')
+  end
+
+  scenario "editing an event with invalid credentials" do
+    event = create(:event)
+    login event.creator
+    visit event_path(event)
+    click_link "Edit Event"
+    fill_in "Name", with: nil
+    click_button "Update Event"
+    expect(page).to have_content("can't be blank")
   end
 
   skip "cancelling an event"

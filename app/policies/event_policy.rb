@@ -1,11 +1,15 @@
 class EventPolicy < ApplicationPolicy
 
+  def show?
+    true
+  end
+
   def create?
     user
   end
 
   def update?
-    user
+    user == record.creator
   end
 
 end

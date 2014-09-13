@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Event, :type => :model do
+
   it { is_expected.to belong_to(:creator) }
   it { is_expected.to validate_presence_of(:creator) }
   it { is_expected.to validate_presence_of(:name) }
@@ -17,4 +18,5 @@ RSpec.describe Event, :type => :model do
     event = build(:event)
     expect(event.current_state).to eq(:new)
   end
+
 end

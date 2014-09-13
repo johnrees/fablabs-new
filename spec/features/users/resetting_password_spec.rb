@@ -46,7 +46,7 @@ feature "Resetting your password" do
     visit recovery_url(user.recovery_key)
     # expect(page).to_not have_link('Sign in')
     click_button 'Reset Password'
-    expect(page).to have_content('blank')
+    expect(page).to have_content("can't be blank")
   end
 
 end

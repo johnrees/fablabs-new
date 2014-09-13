@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
   belongs_to :creator, class_name: 'User'
-  validates_presence_of :creator, :name, :description, :starts_at, :ends_at
+  validates :creator, :name, :description, :starts_at,
+    :ends_at, presence: true
 
   def to_s
     name

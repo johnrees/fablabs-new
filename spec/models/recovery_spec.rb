@@ -6,7 +6,7 @@ RSpec.describe Recovery, :type => :model do
 
   it "is valid with user" do
     user = create(:user)
-    expect(create(:recovery, email: user.email).user ).to be_valid
+    expect( create(:recovery, email: user.email) ).to be_valid
   end
 
   it "validates user exists on create" do
