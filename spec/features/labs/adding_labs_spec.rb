@@ -1,6 +1,8 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature "adding a lab" do
+
+  skip "as a guest"
 
   scenario "with valid credentials" do
     login
