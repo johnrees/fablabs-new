@@ -37,6 +37,16 @@ feature "Resetting your password" do
     expect(page).to have_link('Log out')
   end
 
+  scenario "with an invalid password" do
+    recovery = create(:recovery, user: user, email: user.email)
+    visit recovery_url(user.recovery_key)
+    # expect(page).to_not have_link('Sign in')
+    fill_in 'Password', with: 'newpassword'
+    fill_in 'Password confirmation', with: 'invalid'
+    click_button 'Reset Password'
+    expect(page).to have_content("doesn't match Password")
+  end
+
   scenario "with an invalid url" do
     expect{visit recovery_url('invalidkey')}.to raise_error(ActiveRecord::RecordNotFound)
   end

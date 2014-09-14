@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140910214526) do
   add_index "events", ["workflow_state"], name: "index_events_on_workflow_state", using: :btree
 
   create_table "labs", force: true do |t|
+    t.integer  "creator_id"
     t.string   "name"
     t.text     "description"
     t.string   "workflow_state", null: false
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140910214526) do
     t.datetime "updated_at",     null: false
   end
 
+  add_index "labs", ["creator_id"], name: "index_labs_on_creator_id", using: :btree
   add_index "labs", ["workflow_state"], name: "index_labs_on_workflow_state", using: :btree
 
   create_table "recoveries", force: true do |t|

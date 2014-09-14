@@ -15,12 +15,12 @@ class LabsController < ApplicationController
   end
 
   def edit
-    @lab = Lab.find(params[:id])
+    @lab = current_user.labs.find(params[:id])
     authorize @lab
   end
 
   def create
-    @lab = Lab.new lab_params
+    @lab = current_user.labs.build lab_params
     authorize @lab
     if @lab.save
       redirect_to labs_url, notice: "Thanks"

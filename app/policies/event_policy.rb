@@ -9,7 +9,7 @@ class EventPolicy < ApplicationPolicy
   end
 
   def update?
-    user == record.creator
+    record.creator.present? and user == record.creator
   end
 
 end

@@ -19,7 +19,16 @@ feature "changing user details" do
     expect(page).to have_content("Successfully changed")
   end
 
-  skip "changing password incorrect details"
+  scenario "incorrect details" do
+    user = create(:user)
+    login user
+    click_link "Change Password"
+    fill_in "Original password", with: nil
+    fill_in "New password", with: "newpassword"
+    fill_in "New password confirmation", with: "newpassword"
+    click_button "Change Password"
+    expect(page).to have_content("Form is invalid")
+  end
 
   skip "changing details"
 

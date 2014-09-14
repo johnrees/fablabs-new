@@ -9,7 +9,7 @@ class LabPolicy < ApplicationPolicy
   end
 
   def update?
-    user
+    record.creator.present? and user == record.creator
   end
 
 end
