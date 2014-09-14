@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe User, type: :model do
 
@@ -11,6 +11,7 @@ describe User, type: :model do
   it { is_expected.to have_many(:recoveries) }
   it { is_expected.to have_many(:submissions) }
   it { is_expected.to have_many(:events) }
+  it { is_expected.to have_many(:labs) }
 
   it "has name for to_s" do
     user = build(:user, first_name: 'Homer', last_name: 'Simpson')

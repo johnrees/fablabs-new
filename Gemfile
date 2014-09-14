@@ -1,3 +1,4 @@
+ruby '2.1.2'
 source 'https://rubygems.org'
 
 
@@ -13,6 +14,7 @@ gem 'sass-rails', '~> 5.0.0.beta1'
 gem 'bourbon'
 gem 'neat'
 gem 'normalize-rails'
+gem 'date_validator'
 # gem 'bitters'
 # gem 'refills'
 
@@ -50,6 +52,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'simplecov', require: false
   gem 'zonebie'
   gem 'shoulda-matchers'
   gem 'capybara'

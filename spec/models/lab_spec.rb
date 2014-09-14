@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Lab, :type => :model do
 
   it { should have_one(:submission) }
+  it { should belong_to(:creator) }
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:description) }
 

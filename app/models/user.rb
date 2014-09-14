@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :recoveries
   has_many :submissions, foreign_key: 'creator_id'
   has_many :events, foreign_key: 'creator_id'
+  has_many :labs, foreign_key: 'creator_id'
 
   def to_s
     name
