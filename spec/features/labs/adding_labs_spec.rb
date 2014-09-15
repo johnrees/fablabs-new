@@ -2,7 +2,10 @@ require 'rails_helper'
 
 feature "adding a lab" do
 
-  skip "as a guest"
+  scenario "as a guest" do
+    visit new_lab_path
+    expect(page).to have_content('please login')
+  end
 
   scenario "with valid credentials" do
     login

@@ -2,7 +2,11 @@ require 'rails_helper'
 
 feature "editing a lab" do
 
-  skip "as a guest"
+  scenario "as a guest" do
+    lab = create(:lab)
+    expect{ visit edit_lab_path(lab) }.to raise_error
+    # expect(page).to have_content('please login')
+  end
 
   scenario "as an authorised user, with valid credentials" do
     user = create(:user)

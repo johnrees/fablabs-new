@@ -15,3 +15,4 @@
 /config/application.yml
 /coverage
 /bin
+/public/cov

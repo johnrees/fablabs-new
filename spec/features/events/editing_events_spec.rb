@@ -2,12 +2,20 @@ require 'rails_helper'
 
 feature "editing an event" do
 
-  skip "as a guest"
+  given(:event) { create(:event) }
 
-  skip "as an unauthorised user"
+  scenario "as a guest" do
+    visit edit_event_path(event)
+    expect(page).to have_content("please login")
+  end
+
+  scenario "as an unauthorised user" do
+    login
+    visit edit_event_path(event)
+    expect(page).to have_content("not authorized")
+  end
 
   scenario "as an authorised user with valid credentials" do
-    event = create(:event)
     login event.creator
     visit event_path(event)
     click_link "Edit Event"
@@ -17,7 +25,6 @@ feature "editing an event" do
   end
 
   scenario "as an authorised user with invalid credentials" do
-    event = create(:event)
     login event.creator
     visit event_path(event)
     click_link "Edit Event"

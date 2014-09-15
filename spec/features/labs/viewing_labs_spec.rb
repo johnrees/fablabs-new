@@ -2,8 +2,9 @@ require 'rails_helper'
 
 feature "viewing a lab" do
 
+  background { create(:lab, name: "NASA") }
+
   scenario "as a guest" do
-    create(:lab, name: "NASA")
     visit labs_path
     click_link "NASA"
     expect(page).to have_title("NASA")
