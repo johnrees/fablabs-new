@@ -4,6 +4,8 @@
 @import 'neat';
 @import 'form';
 
+$blue: #6D9DD1;
+
 body {
   font-family: 'Helvetica';
   font-size: 15px;
@@ -11,7 +13,7 @@ body {
   color: #444;
   -webkit-font-smoothing: antialiased;
   a {
-    color: #007DCE;
+    color: $blue;
   }
 }
 
