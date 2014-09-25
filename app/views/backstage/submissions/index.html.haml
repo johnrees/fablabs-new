@@ -1,0 +1,6 @@
+= title "Submissions"
+
+%table
+  - @submissions.each do |submission|
+    %tr
+      %td= link_to submission, backstage_submission_path(submission)

@@ -1,0 +1,4 @@
+= title @submission
+
+- @submission.current_state.events.keys.each do |event|
+  = button_to "#{event.to_s.capitalize} Submission", send("#{event}_backstage_submission_path", @submission), method: :put

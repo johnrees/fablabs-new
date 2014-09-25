@@ -15,10 +15,17 @@ feature "viewing all labs" do
     expect(page).to have_content('not authorized')
   end
 
-  scenario "as a superadmin" do
+  scenario "as a superadmin, with new lab" do
     login create(:superadmin)
     visit backstage_labs_path
-    expect(page).to have_link("NASA")
+    expect(page).to_not have_link("NASA")
+  end
+
+  scenario "as a superadmin, with accepted lab" do
+    create(:lab, workflow_state: 'accepted', name: "NASA2")
+    login create(:superadmin)
+    visit backstage_labs_path
+    expect(page).to have_link("NASA2")
   end
 
 end

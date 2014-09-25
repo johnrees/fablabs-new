@@ -8,6 +8,7 @@
   %body{class: "backstage bs-c-#{controller_name} bs-a-#{action_name}"}
     %header
       .container
+        = link_to "Submissions", backstage_submissions_path
         = link_to "Labs", backstage_labs_path
         = link_to "Users", backstage_users_path
     .container

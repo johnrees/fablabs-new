@@ -21,6 +21,13 @@ Rails.application.routes.draw do
 
   namespace :backstage do
     resources :labs
+    resources :submissions do
+      member do
+        put :reject
+        put :accept
+        put :list
+      end
+    end
     resources :users
     root to: 'labs#index'
   end

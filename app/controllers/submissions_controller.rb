@@ -11,4 +11,11 @@ class SubmissionsController < ApplicationController
     authorize @submission
   end
 
+  def accept
+    @submission = Submission.find(params[:id])
+    authorize @submission, :update?
+    @submission.accept!
+    redirect_to @submission
+  end
+
 end
