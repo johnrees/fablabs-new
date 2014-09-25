@@ -9,7 +9,11 @@ class UserPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    !user
+  end
+
+  def update?
+    user and user == record
   end
 
 end

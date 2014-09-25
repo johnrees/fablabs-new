@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
+  rolify
 
   has_secure_password
+
   validates :email, :first_name, :last_name, presence: true
   validates :email, uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }, allow_nil: true

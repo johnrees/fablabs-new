@@ -19,6 +19,12 @@ Rails.application.routes.draw do
 
   resources :users
 
+  namespace :backstage do
+    resources :labs
+    resources :users
+    root to: 'labs#index'
+  end
+
   root to: 'static#home'
 
   # The priority is based upon order of creation: first created -> highest priority.

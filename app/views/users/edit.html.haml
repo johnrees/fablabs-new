@@ -1,0 +1,7 @@
+= title "Settings"
+
+= simple_form_for @user do |f|
+  = f.input :first_name
+  = f.input :last_name
+  .input= link_to "Change Password", new_password_path
+  = f.submit "Update details"

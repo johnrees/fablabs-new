@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %title= ['BKSTG', content_for(:title)].reject(&:blank?).join(' | ')
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body{class: "backstage bs-c-#{controller_name} bs-a-#{action_name}"}
+    %header
+      .container
+        = link_to "Labs", backstage_labs_path
+        = link_to "Users", backstage_users_path
+    .container
+      - flash.each do |key, value|
+        = content_tag :div, value, class: "flash #{key}"
+    #main
+      .container= yield

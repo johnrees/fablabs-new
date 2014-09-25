@@ -10,6 +10,12 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :not_authorized
 
+  def require_login
+    if current_user.nil?
+      redirect_to login_url(goto: request.path), flash: { error: "You must first sign in to access this page" }
+    end
+  end
+
 private
 
   def current_user

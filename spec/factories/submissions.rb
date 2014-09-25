@@ -2,7 +2,8 @@
 
 FactoryGirl.define do
   factory :submission do
-    creator nil
+    association :creator, factory: :user
+    lab
     workflow_state "MyString"
     notes "MyText"
   end

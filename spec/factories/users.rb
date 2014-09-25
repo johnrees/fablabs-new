@@ -8,6 +8,11 @@ FactoryGirl.define do
     sequence(:email) { |n| "homer#{n}@springfieldnuclear.com" }
     password "duffb33r"
     password_confirmation "duffb33r"
+
+    factory :superadmin do
+      after(:create) {|user| user.add_role(:superadmin)}
+    end
+
   end
 
 end

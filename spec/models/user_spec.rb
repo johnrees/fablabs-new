@@ -13,6 +13,17 @@ describe User, type: :model do
   it { is_expected.to have_many(:events) }
   it { is_expected.to have_many(:labs) }
 
+
+  it "is not superadmin" do
+    user = create(:user)
+    expect(user.is_superadmin?).to be_falsey
+  end
+
+  it "is superadmin" do
+    superadmin = create(:superadmin)
+    expect(superadmin.is_superadmin?).to be_truthy
+  end
+
   it "has name for to_s" do
     user = build(:user, first_name: 'Homer', last_name: 'Simpson')
     expect(user.to_s).to eq('Homer Simpson')

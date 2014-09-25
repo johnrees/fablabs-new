@@ -1,0 +1,7 @@
+= title "Submissions"
+
+%ul
+  - @submissions.each do |submission|
+    %li
+      = link_to submission, submission_path(submission)
+      = submission.lab.current_state

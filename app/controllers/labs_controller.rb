@@ -1,7 +1,7 @@
 class LabsController < ApplicationController
 
   def index
-    @labs = Lab.all
+    @labs = Lab.with_accepted_state
   end
 
   def show
@@ -15,7 +15,7 @@ class LabsController < ApplicationController
   end
 
   def edit
-    @lab = current_user.labs.find(params[:id])
+    @lab = Lab.find(params[:id])
     authorize @lab
   end
 

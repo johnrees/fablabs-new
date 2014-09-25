@@ -27,6 +27,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = current_user
+    authorize @user
+  end
+
+  def update
+    @user = current_user
+    authorize @user
+    if @user.update_attributes user_params
+      session[:user_id] = @user.id
+      redirect_to @user, notice: "updated"
+    else
+      render "edit"
+    end
+  end
+
 private
 
   def user_params

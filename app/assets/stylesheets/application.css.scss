@@ -9,11 +9,22 @@ $blue: #6D9DD1;
 body {
   font-family: 'Helvetica';
   font-size: 15px;
-  background: #fafafa;
+  background: #fefefe;
   color: #444;
   -webkit-font-smoothing: antialiased;
   a {
     color: $blue;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+body.c-static.a-home {
+  header {
+    margin-bottom: 0;
+    border: none;
   }
 }
 
@@ -76,7 +87,7 @@ header {
   border-bottom: 1px solid #FAFAFA;
   overflow: hidden;
   background: #333;
-  height: 55px;
+  // height: 55px;
   line-height: 55px;
   color: #888;
   a {

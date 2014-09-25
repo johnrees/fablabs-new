@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :lab do
+    association :creator, factory: :user
     name "MyString"
     description "MyText"
   end

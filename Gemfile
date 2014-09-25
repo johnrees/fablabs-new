@@ -8,6 +8,7 @@ gem 'rails', '4.2.0.beta1'
 gem 'airbrake'
 gem 'pg'
 gem 'figaro', github: 'laserlemon/figaro'
+gem 'rolify', github: 'RolifyCommunity/rolify'
 # Use SCSS for stylesheets
 gem 'simple_form', github: 'plataformatec/simple_form'
 gem 'sass-rails', '~> 5.0.0.beta1'
@@ -50,6 +51,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'brakeman'
 end
+
+gem 'statesman'
 
 group :test do
   gem 'simplecov', require: false

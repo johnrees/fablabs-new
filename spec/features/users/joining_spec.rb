@@ -24,7 +24,7 @@ feature "joining" do
   scenario "when already logged in" do
     login
     visit join_path
-    expect(page).to have_content('already logged in')
+    expect(page).to have_content('not authorized')
   end
 
 end

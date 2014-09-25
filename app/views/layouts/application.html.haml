@@ -5,7 +5,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body
+  %body{class: "c-#{controller_name} a-#{action_name}"}
     %header
       .container
         .logo
@@ -19,8 +19,12 @@
         %nav.user-nav
           - if current_user
             = current_user
-            = link_to "Change Password", new_password_path
-            = link_to "Log out", logout_path
+            %ul
+              - if current_user.is_superadmin?
+                %li= link_to("Backstage", backstage_root_path, target: '_blank')
+              %li= link_to "Submissions #{current_user.submissions.with_new_state.count}", submissions_path
+              %li= link_to "Settings", edit_user_path(current_user)
+              %li= link_to "Log out", logout_path
           - else
             = link_to "Join", join_path
             or

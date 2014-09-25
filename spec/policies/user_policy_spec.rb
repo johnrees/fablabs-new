@@ -15,4 +15,14 @@ describe UserPolicy do
     it { is_expected.to_not allow(:destroy) }
   end
 
+  context "for a user" do
+    let(:user) { create(:user) }
+    it { is_expected.to allow(:show) }
+    it { is_expected.to_not allow(:create) }
+    it { is_expected.to_not allow(:new) }
+    it { is_expected.to allow(:update) }
+    it { is_expected.to allow(:edit) }
+    it { is_expected.to_not allow(:destroy) }
+  end
+
 end
