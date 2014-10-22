@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0.beta1'
+gem 'rails', '4.2.0.beta2'
 # Use postgresql as the database for Active Record
 gem 'airbrake'
 gem 'pg'
@@ -44,7 +44,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Rails Html Sanitizer for HTML sanitization
 gem 'rails-html-sanitizer', '~> 1.0'
 
-gem 'pundit'
+gem 'pundit', github: 'elabs/pundit'
 
 group :development, :test do
   gem 'rspec-rails'

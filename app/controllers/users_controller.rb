@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     @user = User.new user_params
     authorize @user
     if @user.save
-      UserMailer.register.deliver
+      UserMailer.register.deliver_now
       session[:user_id] = @user.id
       redirect_to root_url, notice: "Thank you for signing up!"
     else

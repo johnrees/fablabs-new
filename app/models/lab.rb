@@ -16,7 +16,6 @@ class Lab < ActiveRecord::Base
     name
   end
 
-
   include Workflow
   workflow do
     state :new

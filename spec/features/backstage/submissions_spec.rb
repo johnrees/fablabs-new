@@ -28,14 +28,14 @@ end
 
 feature "reviewing submissions" do
 
-  let(:lab) { build(:lab, name: 'Fab Lab Barcelona') }
-  let(:submission) { create(:submission, lab: lab) }
+  let(:lab) { create(:lab, name: 'Fab Lab Cardiff') }
+  # let(:submission) { create(:submission, lab: lab) }
 
   skip "rejecting submission" do
-    submission = create(:submission, workflow_state: 'in_review')
+    lab.submission.update_attribute :workflow_state, :in_review
     login create(:superadmin)
-    visit backstage_submission_path(submission)
-    save_and_open_page
+    visit backstage_submissions_path
+    click_link "Fab Lab Cardiff"
     click_button "Reject Submission"
     expect(page).to have_content("Rejected")
   end
